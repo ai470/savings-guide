@@ -387,15 +387,18 @@
     .cl-box { flex-shrink: 0; width: 24px; height: 24px; border-radius: 5px; border: 2px solid #0d1f52; background: transparent; display: flex; align-items: center; justify-content: center; font-size: 14px; color: transparent; transition: background 0.2s, color 0.2s; }
     .cl-item.done .cl-box { background: #2a7a2a; border-color: #2a7a2a; color: #fff; }
     .cl-item.done .cl-text { text-decoration: line-through; opacity: 0.6; }
-    /* ── Outro ──────────────────────────────────────────── */
-    .outro-wrapper {
-      font-family: 'Montserrat', sans-serif;
-      display: flex; align-items: center; justify-content: center;
-      padding: 56px 20px;
+    /* ── Dark section (outro + socials shared bg) ───────── */
+    .dark-section {
       background:
         radial-gradient(ellipse 55% 100% at 8%  55%, rgba(18,58,195,0.45) 0%, transparent 58%),
         radial-gradient(ellipse 35% 55%  at 88% 45%, rgba(8,22,80,0.22)  0%, transparent 55%),
         linear-gradient(148deg, #0b1c4a 0%, #07122e 45%, #050e24 100%);
+    }
+    /* ── Outro ──────────────────────────────────────────── */
+    .outro-wrapper {
+      font-family: 'Montserrat', sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      padding: 56px 20px 40px;
     }
     .outro {
       width: 100%; max-width: 1400px;
@@ -448,6 +451,56 @@
       font-size: clamp(15px, 1.35vw, 19px); font-weight: 400;
       color: rgba(255,255,255,.85); line-height: 1.65; margin-bottom: 20px;
     }
+    .outro__socials-heading {
+      margin-top: 28px;
+      font-size: clamp(15px, 1.3vw, 17px); font-weight: 700; line-height: 1.45;
+      color: #ffffff;
+    }
+    .outro__social-card {
+      margin-top: 14px;
+      background: #ffffff; border-radius: 14px;
+      padding: 6px 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    .social-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: background 0.15s;
+      border-radius: 10px;
+    }
+    .social-link:hover { background: #f5f7ff; }
+    .social-icon {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .social-icon svg { width: 22px; height: 22px; }
+    .social-icon--img { background: none !important; }
+    .social-icon--img img { width: 40px; height: 40px; object-fit: contain; border-radius: 10px; }
+    .social-icon--max img { width: 62px; height: 62px; }
+    .social-icon:not(.social-icon--img) { border-radius: 50%; }
+    .social-text {
+      font-size: 14.5px; font-weight: 600; color: #1a1f3a; line-height: 1.3;
+    }
+    .social-text span { font-weight: 400; color: #3a4080; text-decoration: underline; text-underline-offset: 2px; }
+    /* ── Socials block ── */
+    .bsoc {
+      padding: 0 20px 64px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .bsoc__heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; line-height: 1.4;
+      text-align: center; color: #ffffff;
+      max-width: 520px; margin: 0 auto 28px;
+    }
+    .bsoc__card {
+      background: #ffffff; border-radius: 16px;
+      padding: 8px 0;
+      box-shadow: 0 4px 32px rgba(13,31,82,0.1);
+      width: 100%; max-width: 480px;
+    }
+
     .outro__note {
       font-size: clamp(12px, 1vw, 15px); color: #ffffff;
       font-style: italic;
@@ -519,9 +572,10 @@
       /* Block 5 */
       .b5__steps { grid-template-columns: 1fr 1fr; }
 
-      /* Outro */
-      .outro-wrapper { padding: 32px 16px; }
+      /* Outro + Socials */
+      .outro-wrapper { padding: 32px 16px 32px; }
       .outro__inner { flex-direction: column-reverse; padding: 48px 40px; gap: 28px; min-height: auto; }
+      .bsoc { padding: 0 16px 48px; }
       .outro__visual { width: 50%; max-width: 240px; align-self: center; }
     }
 
@@ -568,9 +622,12 @@
       .tips-group { padding: 16px 18px; }
       .tip { font-size: 13px; }
 
-      /* Outro */
-      .outro-wrapper { padding: 20px 12px; }
+      /* Outro + Socials */
+      .outro-wrapper { padding: 20px 12px 20px; }
       .outro__inner { padding: 36px 24px; }
+      .bsoc { padding: 0 12px 40px; }
+      .bsoc__heading { font-size: 16px; margin-bottom: 20px; }
+      .social-icon--max img { width: 50px; height: 50px; }
       .outro__visual { width: 65%; }
       .outro__title { font-size: clamp(22px, 6vw, 32px); }
     }
@@ -1054,8 +1111,9 @@
   </main>
 
   <!-- ════════════════════════════════════════════════════
-       OUTRO · Closing hero
+       OUTRO + SOCIALS · shared dark background
   ════════════════════════════════════════════════════ -->
+  <div class="dark-section">
   <div class="outro-wrapper">
     <div class="outro">
       <div class="outro__clip">
@@ -1101,6 +1159,40 @@
       </div>
     </div>
   </div>
+
+  <!-- ════════════════════════════════════════════════════
+       SOCIALS
+  ════════════════════════════════════════════════════ -->
+  <section class="bsoc">
+    <h2 class="bsoc__heading">Больше полезного контента — в моих социальных сетях. Подписывайтесь, чтобы не пропустить важное</h2>
+    <div class="bsoc__card">
+      <a class="social-link" href="https://vk.com/volkovacapital" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#0077FF;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.019-1.304.587-1.496c.596-.19 1.365 1.26 2.179 1.818.614.422 1.08.33 1.08.33l2.17-.03s1.137-.071.598-1.011c-.044-.076-.314-.658-1.618-1.862-1.364-1.259-1.182-1.055.462-3.231.999-1.332 1.398-2.146 1.272-2.494-.12-.332-.856-.244-.856-.244l-2.44.015s-.181-.025-.315.055c-.132.078-.216.262-.216.262s-.386 1.03-.901 1.904c-1.086 1.844-1.52 1.943-1.698 1.828-.413-.267-.31-1.075-.31-1.648 0-1.793.272-2.54-.529-2.733-.265-.064-.46-.106-1.138-.113-.87-.009-1.605.003-2.021.207-.277.135-.491.437-.361.454.161.021.527.099.72.363.249.341.24 1.107.24 1.107s.143 2.11-.334 2.372c-.327.18-.776-.187-1.74-1.861-.494-.855-.869-1.801-.869-1.801s-.072-.178-.202-.273c-.157-.115-.376-.152-.376-.152l-2.322.015s-.348.01-.476.162c-.114.135-.009.414-.009.414s1.818 4.25 3.876 6.394c1.888 1.97 4.03 1.84 4.03 1.84h.972z" fill="#fff"/></svg>
+        </div>
+        <div class="social-text">Мой ВК &mdash; <span>vk.com/volkovacapital</span></div>
+      </a>
+      <a class="social-link" href="https://m.youtube.com/@capitalvolkova" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#FF0000;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.8 8.001a2.75 2.75 0 0 0-1.937-1.948C18.2 5.6 12 5.6 12 5.6s-6.2 0-7.863.453A2.75 2.75 0 0 0 2.2 8.001 28.8 28.8 0 0 0 1.75 12a28.8 28.8 0 0 0 .45 3.999 2.75 2.75 0 0 0 1.937 1.947C5.8 18.4 12 18.4 12 18.4s6.2 0 7.863-.454a2.75 2.75 0 0 0 1.937-1.947A28.8 28.8 0 0 0 22.25 12a28.8 28.8 0 0 0-.45-3.999z" fill="#fff"/><path d="M9.75 15l5.25-3-5.25-3v6z" fill="#FF0000"/></svg>
+        </div>
+        <div class="social-text">Мой Ютуб &mdash; <span>youtube.com/@capitalvolkova</span></div>
+      </a>
+      <a class="social-link" href="https://max.ru/volkovacapital" target="_blank" rel="noopener">
+        <div class="social-icon social-icon--img social-icon--max">
+          <img src="MAX LOGO.webp" alt="MAX">
+        </div>
+        <div class="social-text">Мой MAX-канал &mdash; <span>max.ru/volkovacapital</span></div>
+      </a>
+      <a class="social-link" href="https://t.me/volkovacapital" target="_blank" rel="noopener">
+        <div class="social-icon social-icon--img">
+          <img src="Telegram_logo.svg.webp" alt="Telegram">
+        </div>
+        <div class="social-text">Мой Telegram &mdash; <span>t.me/volkovacapital</span></div>
+      </a>
+    </div>
+  </section>
+  </div><!-- /.dark-section -->
 
 </body>
 </html>
