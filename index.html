@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гайд: Способы грамотной экономии</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ══════════════════════════════════════════════════════
+       HERO SECTION
+    ══════════════════════════════════════════════════════ */
+    .hero-wrapper {
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #fff;
+      background:
+        radial-gradient(ellipse 55% 100% at 8%  55%, rgba(18, 58, 195, 0.45) 0%, transparent 58%),
+        radial-gradient(ellipse 35% 55%  at 88% 45%, rgba(8,  22, 80,  0.22) 0%, transparent 55%),
+        linear-gradient(148deg, #0b1c4a 0%, #07122e 45%, #050e24 100%);
+    }
+
+    .hero {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 18px;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      align-items: stretch;
+      filter: drop-shadow(0 8px 48px rgba(4, 12, 40, 0.7));
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: 20px;
+      background: linear-gradient(
+        120deg,
+        rgba(140, 95,  8, 0.12)  0%,
+        rgba(230, 178, 45, 0.75) 18%,
+        rgba(255, 215, 70, 0.92) 26%,
+        rgba(185, 135, 18, 0.35) 40%,
+        rgba(120, 80,  5, 0.08)  55%,
+        rgba(200, 150, 22, 0.4)  68%,
+        rgba(245, 192, 48, 0.8)  78%,
+        rgba(175, 125, 15, 0.3)  88%,
+        rgba(140, 95,  8, 0.12)  100%
+      );
+      background-size: 300% 300%;
+      animation: borderShimmer 9s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes borderShimmer {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0%   50%; }
+    }
+
+    .hero__clip {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: stretch;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 100% at 8%  55%, rgba(18, 58, 195, 0.6) 0%, transparent 58%),
+        radial-gradient(ellipse 35% 55%  at 88% 45%, rgba(8,  22, 80,  0.3) 0%, transparent 55%),
+        linear-gradient(148deg, #0c1e52 0%, #07122e 45%, #050e24 100%);
+    }
+    .hero__dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(80, 130, 255, 0.12) 1px, transparent 1px);
+      background-size: 34px 34px;
+      pointer-events: none;
+    }
+    .hero__circuit {
+      position: absolute; right: 0; top: 0; width: 55%; height: 100%;
+      pointer-events: none; overflow: hidden;
+    }
+    .hero__circuit svg { width: 100%; height: 100%; opacity: 0.16; }
+
+    .hero__inner {
+      position: relative; z-index: 10; width: 100%;
+      min-height: clamp(500px, 52vw, 700px);
+      padding: 72px 0 72px 80px;
+    }
+    .hero__content {
+      display: flex; flex-direction: column; max-width: 52%;
+    }
+
+    .title-intro {
+      display: block;
+      font-size: clamp(28px, 3.4vw, 50px);
+      font-weight: 700; font-style: italic;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: #ffffff; margin-bottom: 2px;
+    }
+    .title-main {
+      display: block;
+      font-size: clamp(44px, 5.8vw, 84px);
+      font-weight: 900; line-height: 0.95;
+      text-transform: uppercase; letter-spacing: 0.01em;
+      background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 22px;
+    }
+
+    .hero__divider {
+      position: relative; width: 70%; height: 1.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(185,135,20,.45) 8%, rgba(245,195,50,.85) 35%, rgba(255,220,75,.95) 50%, rgba(200,148,22,.5) 75%, transparent 100%);
+      box-shadow: 0 0 6px rgba(255,200,40,.55), 0 0 14px rgba(220,160,20,.3);
+      margin-bottom: 22px; overflow: hidden;
+    }
+    .hero__divider::after {
+      content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,245,180,.95), transparent);
+      animation: dividerBlik 5s ease-in-out infinite;
+    }
+    @keyframes dividerBlik {
+      0%   { left: -60%; opacity: 0; }
+      10%  { opacity: 1; }
+      60%  { left: 130%; opacity: 1; }
+      70%  { opacity: 0; }
+      100% { left: 130%; opacity: 0; }
+    }
+
+    .subtitle-eye {
+      display: inline-block; position: relative;
+      padding: 9px 20px; margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,.18); border-radius: 100px;
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.12);
+      max-width: fit-content;
+    }
+    .hero__subtitle {
+      font-size: clamp(16px, 1.45vw, 20px); font-weight: 400;
+      color: rgba(255,255,255,.9); line-height: 1; white-space: nowrap;
+    }
+
+    .hero__author {
+      display: inline-flex; flex-direction: column; gap: 8px;
+      padding-left: 18px; border-left: 2.5px solid rgba(210,160,35,.85);
+      margin-top: 46px;
+    }
+    .hero__author-name {
+      font-size: clamp(17px, 1.6vw, 24px); font-weight: 700;
+      background: linear-gradient(135deg, #C8900A 0%, #FFE2AC 45%, #D4A017 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero__author-role {
+      font-size: clamp(13px, 1.1vw, 16px); font-weight: 500;
+      color: rgba(255,255,255,.9);
+    }
+
+    .hero__visual {
+      position: absolute; right: 0; bottom: 0; width: 52%;
+      pointer-events: none; z-index: 5;
+    }
+    .hero__glow {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-40%);
+      width: 90%; height: 45%;
+      background: radial-gradient(ellipse at center bottom, rgba(15,60,215,.55) 0%, transparent 70%);
+      filter: blur(36px); pointer-events: none;
+    }
+    .hero__image {
+      display: block; width: 100%; position: relative; z-index: 1;
+      filter: drop-shadow(0 0 50px rgba(20,80,255,.4)) drop-shadow(0 30px 55px rgba(0,0,0,.55));
+    }
+
+    /* ══════════════════════════════════════════════════════
+       GUIDE CONTENT
+    ══════════════════════════════════════════════════════ */
+    body { font-family: 'Montserrat', sans-serif; background: #dde2ee; }
+
+    .guide { display: flex; flex-direction: column; gap: 2px; padding: 2px 0 0; }
+
+    /* ── Section header: badge + title ──────────────────── */
+    .sh { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+    .sh__badge {
+      display: inline-block; background: #0d1f52; color: #ffffff;
+      padding: 7px 16px; border-radius: 5px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      max-width: fit-content;
+    }
+    .sh__title { font-size: clamp(22px, 2.4vw, 32px); font-weight: 900; color: #0d1a3e; line-height: 1.15; }
+
+    /* ── Shared item primitives ─────────────────────────── */
+    .it-num { font-size: 40px; font-weight: 900; line-height: 0.85; letter-spacing: -0.04em; flex-shrink: 0; }
+    .it-title { font-size: clamp(14px, 1.2vw, 16px); font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; color: #0d1a3e; }
+    .it-body { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+    .it-body li { font-size: clamp(12px, 0.95vw, 13.5px); color: #4a4e68; line-height: 1.65; padding-left: 16px; position: relative; }
+    .it-body li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #0d1f52; opacity: 0.3; }
+
+    /* ── Tips ────────────────────────────────────────────── */
+    .tips-group {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: #0d1f52;
+      border-radius: 8px;
+    }
+    .tips-group__label {
+      display: block; margin-bottom: 8px;
+      font-size: 8.5px; font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .tip {
+      margin: 0; padding: 8px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12.5px; line-height: 1.65;
+      color: #ffffff; font-weight: 600;
+    }
+    .tip:first-of-type { border-top: none; padding-top: 0; }
+
+    /* ── 3D illustration slot ────────────────────────────── */
+    .illus {
+      display: flex; justify-content: flex-end; align-items: flex-end;
+      padding-top: 40px;
+    }
+    .illus__ph {
+      width: 220px; min-height: 200px;
+      border: 1.5px dashed rgba(13,31,82,0.18);
+      background: #f4f6fb;
+      border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; text-align: center; color: #6070a0; padding: 20px;
+    }
+    .illus__ph .ph-icon  { font-size: 32px; opacity: 0.45; }
+    .illus__ph .ph-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+    .illus__ph .ph-desc  { font-size: 11px; line-height: 1.5; opacity: 0.65; max-width: 160px; }
+
+    /* ── Inline placeholder (for sub-items) ─────────────── */
+    .ph {
+      border: 1.5px dashed rgba(13,31,82,0.18); background: #f4f6fb;
+      border-radius: 10px; padding: 16px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px; text-align: center; color: #6070a0;
+    }
+    .ph-icon  { font-size: 24px; opacity: 0.45; }
+    .ph-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+    .ph-desc  { font-size: 11px; line-height: 1.5; opacity: 0.65; max-width: 200px; }
+    .ph--tall  { min-height: 200px; }
+    .ph--short { min-height: 100px; }
+
+    /* ── Cashback logos ──────────────────────────────────── */
+    .service-tiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
+    .service-tile { background: #f5f7fc; border: 1px solid #e4e8f4; border-radius: 10px; padding: 14px 10px; display: flex; align-items: center; justify-content: center; min-height: 78px; }
+    .service-tile img { width: 100%; height: auto; max-height: 60px; object-fit: contain; }
+    .service-tile img.logo-large { max-height: 78px; }
+    img.logo-rounded { width: 58px; height: 58px; object-fit: contain; border-radius: 12px; border: 2px solid rgba(13,31,82,0.15); }
+
+    /* ── Bank card + phone assets ────────────────────────── */
+    .card-peek-wrapper { position: relative; z-index: 3; padding: 0 4px; }
+    .card-peek { width: 100%; display: block; filter: drop-shadow(0 12px 28px rgba(0,20,100,0.2)); }
+    .phone-full { display: block; width: 100%; padding: 0 4px; margin-top: -60px; position: relative; z-index: 2; }
+
+    /* ══════════════════════════════════════════════════════
+       ALL BLOCKS — white base
+    ══════════════════════════════════════════════════════ */
+    .b1, .b2, .b3, .b4, .b5, .bcl { background: #ffffff; }
+    .b1 { padding: 56px 0; }
+    .b2 { padding: 56px 0; }
+    .b3 { padding: 56px 0; }
+    .b4 { padding: 56px 0; }
+    .b5 { padding: 56px 0 0; }
+    .b5__coins { width: 100%; display: block; line-height: 0; margin-top: 24px; }
+    .b5__coins img { width: 100%; display: block; margin: 0 auto; max-height: 480px; object-fit: contain; }
+    .bcl { padding: 56px 0 72px; }
+
+    /* ── Block inner containers ─────────────────────────── */
+    .b1__inner, .b2__inner, .b3__inner, .b4__inner, .b5__inner, .bcl__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 56px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BLOCK 1 — Платёжные инструменты
+    ══════════════════════════════════════════════════════ */
+    .b1__inner { display: grid; grid-template-columns: 1fr 360px; align-items: center; gap: 0; }
+    .b1__content { padding-right: 48px; }
+    .b1 .items { display: flex; flex-direction: column; }
+    .b1 .item { padding: 20px 0; border-bottom: 1px solid #f0f2f8; }
+    .b1 .item:last-child { border-bottom: none; }
+    .b1 .item-hd { display: flex; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
+    .b1 .it-num { color: rgba(13,31,82,0.1); width: 52px; text-align: center; }
+    .b1 .it-title { padding-top: 3px; flex: 1; }
+    .b1 .it-body { padding-left: 56px; }
+    .b1 .tips-group { margin-left: 56px; }
+    .b1 .service-tiles { margin-left: 56px; }
+    .b1__visual { display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 16px; gap: 16px; }
+    .card-centered { width: 100%; display: block; filter: drop-shadow(0 16px 36px rgba(0,20,100,0.22)); }
+    .b1__piggy { width: 88%; display: block; }
+
+    /* ══════════════════════════════════════════════════════
+       BLOCK 2 — Путешествия
+    ══════════════════════════════════════════════════════ */
+    .b2__illus { margin-top: 24px; display: flex; justify-content: center; }
+    .b2__illus img { width: 52%; max-height: 360px; object-fit: contain; }
+    .b2__rows { display: flex; flex-direction: column; }
+    .b2__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; padding: 20px 0; border-bottom: 1px solid #f0f2f8; }
+    .b2__row:last-child { border-bottom: none; }
+    .b2 .item { padding: 0; border-bottom: none; display: flex; flex-direction: column; }
+    .b2 .item .it-body { flex: 1; }
+    .b2 .item .tips-group,
+    .b2 .item .item-callout { margin-top: 20px; }
+    .b2 .item-hd { display: flex; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
+    .b2 .it-num { color: rgba(13,31,82,0.1); width: 52px; text-align: center; }
+    .b2 .it-title { padding-top: 3px; flex: 1; }
+    .b2 .it-body { padding-left: 56px; }
+    .b2 .tips-group { margin-left: 56px; margin-top: 0; }
+    .b2 .item-callout {
+      margin-left: 56px; margin-top: 10px;
+      background: #0d1f52; border-radius: 8px; padding: 14px 18px;
+      font-size: 12.5px; line-height: 1.6; color: #ffffff; font-weight: 600;
+    }
+    .b2 .item-callout strong {
+      background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-weight: 800;
+    }
+
+    .b3 .item-callout {
+      margin-top: 10px;
+      background: #0d1f52; border-radius: 8px; padding: 14px 18px;
+      font-size: 12.5px; line-height: 1.65;
+      color: #ffffff; font-weight: 600;
+    }
+    .b3 .item-callout strong {
+      background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-weight: 800;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BLOCK 3 — Покупки
+    ══════════════════════════════════════════════════════ */
+    .b3 .item { display: grid; grid-template-columns: 60px 1fr 260px; gap: 0 24px; padding: 24px 0; border-bottom: 1px solid #f0f2f8; align-items: start; }
+    .b3 .item:last-child { border-bottom: none; }
+    .b3 .it-num { font-size: 44px; text-align: right; color: rgba(13,31,82,0.1); padding-top: 2px; }
+
+    /* ══════════════════════════════════════════════════════
+       BLOCK 4 — Здоровье и услуги
+    ══════════════════════════════════════════════════════ */
+    .b4__layout { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; }
+    .b4__content { display: flex; flex-direction: column; gap: 36px; }
+    .b4__visual { display: flex; align-items: center; justify-content: center; }
+    .b4__visual img { width: 100%; display: block; }
+    .b4-item__num { font-size: 72px; font-weight: 900; line-height: 0.85; letter-spacing: -0.05em; color: rgba(13,31,82,0.07); margin-bottom: 12px; }
+    .b4-item__title { font-size: clamp(15px, 1.4vw, 18px); font-weight: 800; color: #0d1a3e; margin-bottom: 14px; line-height: 1.3; }
+
+    /* ══════════════════════════════════════════════════════
+       BLOCK 5 — Планирование
+    ══════════════════════════════════════════════════════ */
+    .b5__steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .b5-step { background: #f8f9fd; border: 1px solid #e8ecf6; padding: 28px 24px; border-radius: 4px; }
+    .b5-step__num { font-size: 56px; font-weight: 900; line-height: 0.85; letter-spacing: -0.05em; color: rgba(13,31,82,0.08); margin-bottom: 14px; }
+    .b5-step__title { font-size: clamp(14px, 1.2vw, 15.5px); font-weight: 800; color: #0d1a3e; margin-bottom: 10px; line-height: 1.3; }
+    .stat-callout { margin-top: 12px; background: #eef1fa; border: 1px solid #d4dbf0; border-radius: 8px; padding: 12px 16px; font-size: 12.5px; line-height: 1.6; color: #3a4570; }
+    .stat-num { font-size: 16px; font-weight: 800; color: #0d1f52; }
+
+    /* ══════════════════════════════════════════════════════
+       CHECKLIST
+    ══════════════════════════════════════════════════════ */
+    .bcl__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; }
+    .cl-item { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: #f8f9fd; border: 1px solid #e8ecf6; border-radius: 8px; font-size: clamp(13px, 1.05vw, 14.5px); font-weight: 600; color: #0d1a3e; }
+    .cl-box { flex-shrink: 0; width: 24px; height: 24px; border-radius: 5px; background: #0d1f52; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; }
+    /* ── Outro ──────────────────────────────────────────── */
+    .outro-wrapper {
+      font-family: 'Montserrat', sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      padding: 56px 20px;
+      background:
+        radial-gradient(ellipse 55% 100% at 8%  55%, rgba(18,58,195,0.45) 0%, transparent 58%),
+        radial-gradient(ellipse 35% 55%  at 88% 45%, rgba(8,22,80,0.22)  0%, transparent 55%),
+        linear-gradient(148deg, #0b1c4a 0%, #07122e 45%, #050e24 100%);
+    }
+    .outro {
+      width: 100%; max-width: 1400px;
+      position: relative; border-radius: 18px; overflow: visible;
+      filter: drop-shadow(0 8px 48px rgba(4,12,40,0.7));
+    }
+    .outro::before {
+      content: ''; position: absolute; inset: -1.5px; border-radius: 20px;
+      background: linear-gradient(
+        120deg,
+        rgba(140,95,8,0.12) 0%, rgba(230,178,45,0.75) 18%,
+        rgba(255,215,70,0.92) 26%, rgba(185,135,18,0.35) 40%,
+        rgba(120,80,5,0.08) 55%, rgba(200,150,22,0.4) 68%,
+        rgba(245,192,48,0.8) 78%, rgba(175,125,15,0.3) 88%,
+        rgba(140,95,8,0.12) 100%
+      );
+      background-size: 300% 300%;
+      animation: borderShimmer 9s ease-in-out infinite;
+      z-index: 0; pointer-events: none;
+    }
+    .outro__clip {
+      width: 100%; border-radius: 18px; overflow: hidden;
+      position: relative; z-index: 1;
+      display: flex; align-items: stretch;
+    }
+    .outro__circuit {
+      position: absolute; right: 0; top: 0; width: 55%; height: 100%;
+      pointer-events: none; overflow: hidden;
+    }
+    .outro__circuit svg { width: 100%; height: 100%; opacity: 0.16; }
+    .outro__dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(80,130,255,0.12) 1px, transparent 1px);
+      background-size: 34px 34px; pointer-events: none;
+    }
+    .outro__inner {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; gap: 40px;
+      min-height: clamp(300px, 28vw, 440px);
+      padding: 72px 80px;
+    }
+    .outro__content { flex: 1; }
+    .outro__title {
+      font-size: clamp(26px, 3vw, 48px); font-weight: 900; line-height: 1.15;
+      background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 24px;
+    }
+    .outro__sub {
+      font-size: clamp(15px, 1.35vw, 19px); font-weight: 400;
+      color: rgba(255,255,255,.85); line-height: 1.65; margin-bottom: 20px;
+    }
+    .outro__note {
+      font-size: clamp(12px, 1vw, 15px); color: #ffffff;
+      font-style: italic;
+    }
+    .outro__visual {
+      flex: 0 0 auto; width: clamp(240px, 26vw, 400px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .outro__visual img { width: 100%; display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <div class="hero-wrapper">
+    <section class="hero">
+      <div class="hero__clip">
+        <div class="hero__bg"></div>
+        <div class="hero__dots"></div>
+        <div class="hero__circuit">
+          <svg viewBox="0 0 640 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#4a8aff" stroke-width="1" fill="none">
+              <line x1="0"   y1="500" x2="280" y2="0"/>
+              <line x1="90"  y1="500" x2="370" y2="0"/>
+              <line x1="180" y1="500" x2="460" y2="0"/>
+              <line x1="270" y1="500" x2="550" y2="0"/>
+              <line x1="360" y1="500" x2="640" y2="60"/>
+              <line x1="30"  y1="420" x2="210" y2="420"/>
+              <line x1="110" y1="308" x2="330" y2="308"/>
+              <line x1="195" y1="192" x2="430" y2="192"/>
+              <line x1="275" y1="88"  x2="510" y2="88"/>
+            </g>
+            <g fill="#6aa0ff">
+              <circle cx="30"  cy="420" r="2.5"/> <circle cx="210" cy="420" r="2.5"/>
+              <circle cx="110" cy="308" r="3"/>   <circle cx="330" cy="308" r="2.5"/>
+              <circle cx="195" cy="192" r="3"/>   <circle cx="430" cy="192" r="2.5"/>
+              <circle cx="275" cy="88"  r="3"/>   <circle cx="510" cy="88"  r="2.5"/>
+            </g>
+            <g fill="#a0c8ff" opacity="0.9">
+              <circle cx="110" cy="308" r="4.5"/>
+              <circle cx="195" cy="192" r="4.5"/>
+              <circle cx="275" cy="88"  r="4.5"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero__inner">
+          <div class="hero__content">
+            <h1>
+              <span class="title-intro">Гайд:</span>
+              <span class="title-main">Способы<br>грамотной экономии</span>
+            </h1>
+            <div class="hero__divider"></div>
+            <div class="subtitle-eye">
+              <p class="hero__subtitle">Как тратить меньше, не теряя в качестве жизни</p>
+            </div>
+            <div class="hero__author">
+              <span class="hero__author-name">Татьяна Волкова</span>
+              <span class="hero__author-role">Эксперт по созданию личного капитала</span>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__glow"></div>
+            <img class="hero__image" src="Элементы-Photoroom.png" alt="Телефон с графиком и монета">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══ GUIDE CONTENT ══════════════════════════════════════ -->
+  <main class="guide">
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCK 1 · Платёжные инструменты · DARK NAVY
+    ════════════════════════════════════════════════════ -->
+    <section class="b1">
+      <div class="b1__inner">
+        <div class="b1__content">
+          <header class="sh">
+            <span class="sh__badge">Блок 01 · Платёжные инструменты</span>
+            <h2 class="sh__title">Как грамотно использовать<br>платёжные инструменты</h2>
+          </header>
+          <div class="items">
+
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">1</span>
+                <h3 class="it-title">Подключите кешбэк и мили</h3>
+              </div>
+              <ul class="it-body">
+                <li>Выберите дебетовую карту с кешбэком в рублях или милями.</li>
+                <li>Активируйте нужные категории трат в приложении банка.</li>
+                <li>Тратьте мили на авиа/жд-билеты через партнёров банка.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Проверяйте условия: как начисляют, есть ли срок действия баллов.</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">2</span>
+                <h3 class="it-title">Используйте кешбэк-сервисы</h3>
+              </div>
+              <ul class="it-body">
+                <li>Зарегистрируйтесь в Backit, Megabonus, Kopikot.</li>
+                <li>Переходите в интернет-магазины только через эти сервисы.</li>
+                <li>Возвращайте 1–15% с покупок.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-warn">⚠️ Не покупайте лишнее ради кешбэка.</div>
+              </div>
+              <div class="service-tiles">
+                <div class="service-tile"><img src="Backit logo.png" alt="Backit" class="logo-large"></div>
+                <div class="service-tile"><img src="Megabonus logo.png" alt="Megabonus" class="logo-large"></div>
+                <div class="service-tile"><img src="Kopikot.png" alt="Kopikot" class="logo-rounded"></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">3</span>
+                <h3 class="it-title">Оформите дисконтные карты</h3>
+              </div>
+              <ul class="it-body">
+                <li>Скачайте приложение «Кошелёк» или Cards.</li>
+                <li>Добавьте туда карты любимых магазинов.</li>
+                <li>Показывайте штрихкод на кассе с телефона.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Экономия: от 10% до 90%, карта часто бесплатная.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="b1__visual">
+          <img class="card-centered" src="Карта.png" alt="Банковская карта с кешбэком">
+          <img class="b1__piggy" src="image 57.png" alt="Золотая копилка">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCK 2 · Путешествия · WARM PARCHMENT
+    ════════════════════════════════════════════════════ -->
+    <section class="b2">
+      <div class="b2__inner">
+        <header class="sh">
+          <span class="sh__badge">Блок 02 · Путешествия</span>
+          <h2 class="sh__title">Как путешествовать<br>и экономить до 70%</h2>
+        </header>
+
+        <div class="b2__rows">
+
+          <div class="b2__row">
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">4</span>
+                <h3 class="it-title">Бронируйте перелёты заранее</h3>
+              </div>
+              <ul class="it-body">
+                <li>Планируйте поездку за 4–6 месяцев.</li>
+                <li>Сравнивайте цены на Aviasales, Skyscanner.</li>
+                <li>Подпишитесь на уведомления о снижении цен.</li>
+              </ul>
+            </div>
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">7</span>
+                <h3 class="it-title">Путешествуйте не в сезон</h3>
+              </div>
+              <ul class="it-body">
+                <li>Бронируйте отели и туры со скидкой до 30–50%.</li>
+                <li>Не стесняйтесь просить дополнительную скидку на месте.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="b2__row">
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">5</span>
+                <h3 class="it-title">Летайте лоукостерами</h3>
+              </div>
+              <ul class="it-body">
+                <li>Выбирайте авиакомпании с низкими тарифами.</li>
+                <li>Внимательно читайте правила по багажу и ручной клади.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Экономия: до 50–70% от стоимости билета.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">8</span>
+                <h3 class="it-title">Бронируйте жильё через агрегаторы</h3>
+              </div>
+              <ul class="it-body">
+                <li>Используйте Ostrovok, Agoda, Суточно.ру, OneTwoTrip.</li>
+                <li>Сравнивайте цены на 2–3 платформах.</li>
+                <li>Читайте отзывы и проверяйте условия отмены.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Оплачивайте картой РФ — многие сервисы это поддерживают.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="b2__row">
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">6</span>
+                <h3 class="it-title">Апгрейд до бизнес-класса</h3>
+              </div>
+              <ul class="it-body">
+                <li>Купите билет в эконом.</li>
+                <li>За 3 дня до вылета уточните про доплату за бизнес.</li>
+                <li>Если доплата небольшая — соглашайтесь.</li>
+              </ul>
+              <div class="item-callout">
+                Билет бизнес-класса за <strong>48 500 ₽</strong> можно получить за <strong>15 000 ₽</strong> доплаты к эконому.
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-hd">
+                <span class="it-num">9</span>
+                <h3 class="it-title">Изучайте достопримечательности самостоятельно</h3>
+              </div>
+              <ul class="it-body">
+                <li>Скачайте аудиогиды: Izi.travel, Travel.Me, Mytravelry.</li>
+                <li>Найдите бесплатные гайды в интернете.</li>
+                <li>Составьте маршрут заранее.</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Экономия на гидах: от 1 000 до 5 000 ₽ за экскурсию.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="b2__illus">
+          <img src="image 59.png" alt="Путешествия — самолёт, глобус, чемодан">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCK 3 · Покупки · BLUE-GRAY EDITORIAL
+    ════════════════════════════════════════════════════ -->
+    <section class="b3">
+      <div class="b3__inner">
+        <header class="sh">
+          <span class="sh__badge">Блок 03 · Покупки</span>
+          <h2 class="sh__title">Как покупать выгодно<br>в любом магазине</h2>
+        </header>
+
+        <div>
+
+          <div class="item">
+            <span class="it-num">10</span>
+            <div>
+              <h3 class="it-title">Покупайте не в сезон</h3>
+              <ul class="it-body">
+                <li>Зимнюю одежду — в январе–марте.</li>
+                <li>Летнюю — в июне–августе.</li>
+                <li>Составьте список нужного заранее, чтобы не купить лишнее.</li>
+              </ul>
+            </div>
+            <div></div>
+          </div>
+
+          <div class="item">
+            <span class="it-num">11</span>
+            <div>
+              <h3 class="it-title">Участвуйте в совместных закупках</h3>
+              <ul class="it-body">
+                <li>Найдите СП-площадки через поисковики или форумы.</li>
+                <li>Объединяйтесь с друзьями для оптовых заказов.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="item-callout">
+                Экономия: <strong>в 2–3 раза</strong>, даже с комиссией организатора ~16%.
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <span class="it-num">12</span>
+            <div>
+              <h3 class="it-title">Торгуйтесь</h3>
+              <ul class="it-body">
+                <li>Задавайте открытые вопросы: «Как можно купить дешевле?»</li>
+                <li>Просите позвать менеджера, если продавец не может дать скидку.</li>
+                <li>Давайте право отказать: «Я пойму, если нет».</li>
+              </ul>
+            </div>
+            <div>
+              <div class="item-callout">
+                Парадокс: <strong>чем проще отказать, тем чаще соглашаются.</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <span class="it-num">13</span>
+            <div>
+              <h3 class="it-title">Сравнивайте цены онлайн</h3>
+              <ul class="it-body">
+                <li>Перед покупкой проверьте товар на сравни.ру.</li>
+                <li>В магазине откройте приложение и сравните цену.</li>
+                <li>Спросите на кассе: «Сделаете цену как в интернете?»</li>
+              </ul>
+            </div>
+            <div></div>
+          </div>
+
+          <div class="item">
+            <span class="it-num">14</span>
+            <div>
+              <h3 class="it-title">Используйте купонаторы</h3>
+              <ul class="it-body">
+                <li>Зайдите на Biglion, KupiKupon.</li>
+                <li>Найдите скидки на услуги: рестораны, спа, медицина, фитнес.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="item-callout">
+                Скидки <strong>до 90%</strong>, но внимательно читайте условия.
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <span class="it-num">15</span>
+            <div>
+              <h3 class="it-title">Покупайте через оптовые отделы</h3>
+              <ul class="it-body">
+                <li>Если есть ИП — заключите оптовый договор.</li>
+                <li>Нет ИП? Договоритесь со знакомым предпринимателем.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="item-callout">
+                Экономия на стройматериалах, мебели, технике — <strong>до 30%.</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCK 4 · Здоровье и услуги · WHITE
+    ════════════════════════════════════════════════════ -->
+    <section class="b4">
+      <div class="b4__inner">
+        <header class="sh">
+          <span class="sh__badge">Блок 04 · Здоровье и услуги</span>
+          <h2 class="sh__title">Как экономить на здоровье<br>и повседневных услугах</h2>
+        </header>
+
+        <div class="b4__layout">
+          <div class="b4__content">
+            <div class="b4-item">
+              <div class="b4-item__num">16</div>
+              <h3 class="b4-item__title">Экономьте на медицине</h3>
+              <ul class="it-body">
+                <li>Следите за акциями в клиниках.</li>
+                <li>Оформляйте налоговый вычет: верните 13% (до 19 500 ₽ в год).</li>
+                <li>Разбейте дорогое лечение на 2 года, чтобы увеличить лимит вычета — например, начав в декабре.</li>
+                <li>Уточняйте, что можно получить бесплатно по ОМС.</li>
+              </ul>
+            </div>
+
+            <div class="b4-item">
+              <div class="b4-item__num">17</div>
+              <h3 class="b4-item__title">Берите в аренду, а не покупайте</h3>
+              <ul class="it-body">
+                <li>Велосипеды, самокаты, туристическое снаряжение, инструменты.</li>
+                <li>Ищите на Авито или по запросу «прокат [город]».</li>
+              </ul>
+              <div class="tips-group">
+                <div class="tips-group__label">Держи в уме</div>
+                <div class="tip tip-ok">✅ Не занимает место дома + экономит бюджет.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="b4__visual">
+            <img src="image 58.png" alt="Золотое сердце">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCK 5 · Планирование · DARK STEPS
+    ════════════════════════════════════════════════════ -->
+    <section class="b5">
+      <div class="b5__inner">
+        <header class="sh">
+          <span class="sh__badge">Блок 05 · Планирование</span>
+          <h2 class="sh__title">Как планировать расходы<br>и выходить в плюс</h2>
+        </header>
+
+        <div class="b5__steps">
+
+          <div class="b5-step">
+            <div class="b5-step__num">18</div>
+            <h3 class="b5-step__title">Планируйте покупки</h3>
+            <ul class="it-body">
+              <li>Ведите список необходимых товаров.</li>
+              <li>Сравнивайте предложения у 3–5 поставщиков.</li>
+              <li>Используйте «Едадил» для отслеживания скидок на продукты.</li>
+            </ul>
+            <div class="stat-callout">
+              Дверь за <span class="stat-num">246 000 ₽</span> купили за <span class="stat-num">182 000 ₽</span> — просто сравнили предложения нескольких поставщиков.
+            </div>
+          </div>
+
+          <div class="b5-step">
+            <div class="b5-step__num">19</div>
+            <h3 class="b5-step__title">Автоматизируйте учёт</h3>
+            <ul class="it-body">
+              <li>Настройте уведомления о тратах в банковском приложении.</li>
+              <li>Раз в неделю анализируйте: куда ушли деньги.</li>
+              <li>Отключите рассылки магазинов, чтобы не соблазняться на лишнее.</li>
+            </ul>
+          </div>
+
+          <div class="b5-step">
+            <div class="b5-step__num">20</div>
+            <h3 class="b5-step__title">Инвестируйте в обучение</h3>
+            <ul class="it-body">
+              <li>Проходите курсы, читайте книги, слушайте подкасты по финансам.</li>
+              <li>Расширяйте картину мира — это открывает новые возможности.</li>
+            </ul>
+            <div class="tips-group">
+              <div class="tips-group__label">Держи в уме</div>
+              <div class="tip tip-ok">✅ Обучение — это инвестиция с самой высокой доходностью.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="b5__coins">
+        <img src="coins2.png" alt="Золотые монеты">
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         CHECKLIST · CLOSING
+    ════════════════════════════════════════════════════ -->
+    <section class="bcl">
+      <div class="bcl__inner">
+        <header class="sh">
+          <span class="sh__badge">Итог</span>
+          <h2 class="sh__title">Чек-лист на старт</h2>
+        </header>
+
+        <div class="bcl__grid">
+          <div class="cl-item"><span class="cl-box">✓</span>Выбрать карту с кешбэком</div>
+          <div class="cl-item"><span class="cl-box">✓</span>Установить приложение для дисконтных карт</div>
+          <div class="cl-item"><span class="cl-box">✓</span>Подписаться на уведомления о скидках на авиабилеты</div>
+          <div class="cl-item"><span class="cl-box">✓</span>Составить список сезонных покупок</div>
+          <div class="cl-item"><span class="cl-box">✓</span>Проверить купонаторы на ближайшие нужды</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════
+       OUTRO · Closing hero
+  ════════════════════════════════════════════════════ -->
+  <div class="outro-wrapper">
+    <div class="outro">
+      <div class="outro__clip">
+        <div class="hero__bg"></div>
+        <div class="outro__dots"></div>
+        <div class="outro__circuit">
+          <svg viewBox="0 0 640 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#4a8aff" stroke-width="1" fill="none">
+              <line x1="0"   y1="500" x2="280" y2="0"/>
+              <line x1="90"  y1="500" x2="370" y2="0"/>
+              <line x1="180" y1="500" x2="460" y2="0"/>
+              <line x1="270" y1="500" x2="550" y2="0"/>
+              <line x1="360" y1="500" x2="640" y2="60"/>
+              <line x1="30"  y1="420" x2="210" y2="420"/>
+              <line x1="110" y1="308" x2="330" y2="308"/>
+              <line x1="195" y1="192" x2="430" y2="192"/>
+              <line x1="275" y1="88"  x2="510" y2="88"/>
+            </g>
+            <g fill="#6aa0ff">
+              <circle cx="30"  cy="420" r="2.5"/> <circle cx="210" cy="420" r="2.5"/>
+              <circle cx="110" cy="308" r="3"/>   <circle cx="330" cy="308" r="2.5"/>
+              <circle cx="195" cy="192" r="3"/>   <circle cx="430" cy="192" r="2.5"/>
+              <circle cx="275" cy="88"  r="3"/>   <circle cx="510" cy="88"  r="2.5"/>
+            </g>
+            <g fill="#a0c8ff" opacity="0.9">
+              <circle cx="110" cy="308" r="4.5"/>
+              <circle cx="195" cy="192" r="4.5"/>
+              <circle cx="275" cy="88"  r="4.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="outro__inner">
+          <div class="outro__content">
+            <h2 class="outro__title">Грамотная экономия —<br>это не про ограничения.</h2>
+            <div class="hero__divider"></div>
+            <p class="outro__sub">Это про свободу: тратить деньги на то, что действительно важно.</p>
+            <p class="outro__note">Сохраняйте гайд, возвращайтесь к нему перед крупными покупками.</p>
+          </div>
+          <div class="outro__visual">
+            <img src="image-Photoroom (11).png" alt="Золотой ключ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
