@@ -547,11 +547,13 @@
       .b1__inner { grid-template-columns: 1fr; }
       .b1__content { padding-right: 0; }
 
-      /* Block 2 — убрать отступы у списков и подсказок */
-      .b2 .it-num { width: 36px; font-size: 28px; }
+      /* Block 2 — убрать отступы, скрыть декоративный номер */
+      .b2 .it-num { display: none; }
+      .b2 .item-hd { gap: 0; }
       .b2 .it-body { padding-left: 0 !important; }
       .b2 .tips-group { margin-left: 0 !important; }
       .b2 .item-callout { margin-left: 0 !important; }
+      .b2__row { overflow: hidden; }
 
       /* Block 3 */
       .b3 .it-num { font-size: 32px; }
