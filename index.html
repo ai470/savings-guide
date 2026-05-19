@@ -208,22 +208,22 @@
     /* ── Tips ────────────────────────────────────────────── */
     .tips-group {
       margin-top: 20px;
-      padding: 18px 22px;
-      background: #0d1f52;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(13,31,82,0.25);
+      padding: 22px 26px;
+      background: linear-gradient(135deg, #142878 0%, #0d1f52 100%);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(13,31,82,0.45);
     }
     .tips-group__label {
-      display: block; margin-bottom: 10px;
-      font-size: 10px; font-weight: 800;
+      display: block; margin-bottom: 12px;
+      font-size: 10.5px; font-weight: 800;
       letter-spacing: 0.15em; text-transform: uppercase;
       background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .tip {
-      margin: 0; padding: 9px 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      font-size: 14px; line-height: 1.65;
+      margin: 0; padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 14.5px; line-height: 1.65;
       color: #ffffff; font-weight: 700;
     }
     .tip:first-of-type { border-top: none; padding-top: 0; }
@@ -325,9 +325,10 @@
     .b2 .tips-group { margin-left: 56px; margin-top: 0; }
     .b2 .item-callout {
       margin-left: 56px; margin-top: 10px;
-      background: #0d1f52; border-radius: 10px; padding: 18px 22px;
+      background: linear-gradient(135deg, #142878 0%, #0d1f52 100%);
+      border-radius: 12px; padding: 22px 26px;
       font-size: 14px; line-height: 1.6; color: #ffffff; font-weight: 700;
-      box-shadow: 0 4px 20px rgba(13,31,82,0.25);
+      box-shadow: 0 8px 32px rgba(13,31,82,0.45);
     }
     .b2 .item-callout strong {
       background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
@@ -337,10 +338,11 @@
 
     .b3 .item-callout {
       margin-top: 10px;
-      background: #0d1f52; border-radius: 10px; padding: 18px 22px;
+      background: linear-gradient(135deg, #142878 0%, #0d1f52 100%);
+      border-radius: 12px; padding: 22px 26px;
       font-size: 14px; line-height: 1.65;
       color: #ffffff; font-weight: 700;
-      box-shadow: 0 4px 20px rgba(13,31,82,0.25);
+      box-shadow: 0 8px 32px rgba(13,31,82,0.45);
     }
     .b3 .item-callout strong {
       background: linear-gradient(0.306turn, #FFE2AC 0%, #FFF1D8 48%, #FFE2AC 98%);
@@ -378,7 +380,7 @@
     /* ══════════════════════════════════════════════════════
        CHECKLIST
     ══════════════════════════════════════════════════════ */
-    .bcl__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; }
+    .bcl__grid { display: flex; flex-direction: column; gap: 10px; }
     .cl-item { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: #f8f9fd; border: 1.5px solid #e8ecf6; border-radius: 8px; font-size: clamp(13px, 1.05vw, 14.5px); font-weight: 600; color: #0d1a3e; cursor: pointer; user-select: none; transition: background 0.2s, border-color 0.2s; }
     .cl-item:hover { background: #f0f3fc; border-color: #c5cef0; }
     .cl-item.done { background: #eef6ee; border-color: #a8d5a8; color: #2d5a2d; }
@@ -455,6 +457,116 @@
       display: flex; align-items: center; justify-content: center;
     }
     .outro__visual img { width: 100%; display: block; }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════ */
+
+    /* ── 1024px — планшет горизонтальный ─────────────── */
+    @media (max-width: 1024px) {
+      .hero__inner { padding: 56px 0 56px 56px; }
+      .hero__content { max-width: 60%; }
+
+      .b3 .item { grid-template-columns: 56px 1fr 200px; }
+      .b4__layout { grid-template-columns: 1fr 280px; gap: 40px; }
+
+      .outro__inner { padding: 56px; }
+      .outro__visual { width: clamp(200px, 22vw, 300px); }
+    }
+
+    /* ── 768px — планшет вертикальный ────────────────── */
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero-wrapper { min-height: auto; padding: 16px; }
+      .hero, .hero__clip { border-radius: 14px; }
+      .hero__inner { padding: 48px 40px 260px; min-height: auto; }
+      .hero__content { max-width: 100%; }
+      .hero__visual { width: 75%; left: 50%; right: auto; transform: translateX(-50%); }
+      .subtitle-eye { white-space: normal; }
+
+      /* Общие отступы */
+      .b1__inner, .b2__inner, .b3__inner,
+      .b4__inner, .b5__inner, .bcl__inner { padding: 0 32px; }
+      .b1, .b2, .b3, .b4, .bcl { padding: 40px 0; }
+      .b5 { padding: 40px 0 0; }
+      .sh { margin-bottom: 28px; }
+
+      /* Block 1 */
+      .b1__inner { grid-template-columns: 1fr; }
+      .b1__content { padding-right: 0; }
+      .b1__visual { flex-direction: row; justify-content: center; align-items: flex-end; gap: 20px; padding: 28px 0 0; }
+      .card-centered { width: 52%; }
+      .b1__piggy { width: 36%; }
+
+      /* Block 2 */
+      .b2__row { grid-template-columns: 1fr; gap: 0; }
+      .b2__row .item:first-child { padding-bottom: 20px; border-bottom: 1px solid #f0f2f8; }
+      .b2 .item-callout,
+      .b2 .tips-group,
+      .b2 .it-body { margin-left: 0; padding-left: 0; }
+      .b2 .it-body { padding-left: 0; }
+      .b2__illus img { width: 60%; }
+
+      /* Block 3 */
+      .b3 .item { grid-template-columns: 48px 1fr; gap: 0 16px; }
+      .b3 .item > div:last-child { grid-column: 1 / -1; margin-top: 12px; }
+
+      /* Block 4 */
+      .b4__layout { grid-template-columns: 1fr; gap: 28px; }
+      .b4__visual { justify-content: center; }
+      .b4__visual img { max-width: 260px; }
+
+      /* Block 5 */
+      .b5__steps { grid-template-columns: 1fr 1fr; }
+
+      /* Outro */
+      .outro-wrapper { padding: 32px 16px; }
+      .outro__inner { flex-direction: column-reverse; padding: 48px 40px; gap: 28px; min-height: auto; }
+      .outro__visual { width: 50%; max-width: 240px; align-self: center; }
+    }
+
+    /* ── 480px — мобильный ───────────────────────────── */
+    @media (max-width: 480px) {
+      /* Hero */
+      .hero__inner { padding: 36px 24px 240px; }
+      .hero__visual { width: 90%; }
+      .hero__author { margin-top: 28px; }
+
+      /* Общие отступы */
+      .b1__inner, .b2__inner, .b3__inner,
+      .b4__inner, .b5__inner, .bcl__inner { padding: 0 16px; }
+      .b1, .b2, .b3, .b4, .bcl { padding: 28px 0; }
+      .b5 { padding: 28px 0 0; }
+
+      /* Block 1 */
+      .b1__visual { flex-direction: column; align-items: center; }
+      .card-centered { width: 85%; }
+      .b1__piggy { width: 72%; }
+
+      /* Block 2 */
+      .b2 .it-num { width: 36px; font-size: 28px; }
+
+      /* Block 3 */
+      .b3 .it-num { font-size: 32px; }
+
+      /* Block 4 */
+      .b4-item__num { font-size: 52px; }
+      .b4__visual img { max-width: 200px; }
+
+      /* Block 5 */
+      .b5__steps { grid-template-columns: 1fr; }
+      .b5-step { padding: 20px 18px; }
+
+      /* Tips */
+      .tips-group { padding: 16px 18px; }
+      .tip { font-size: 13px; }
+
+      /* Outro */
+      .outro-wrapper { padding: 20px 12px; }
+      .outro__inner { padding: 36px 24px; }
+      .outro__visual { width: 65%; }
+      .outro__title { font-size: clamp(22px, 6vw, 32px); }
+    }
   </style>
 </head>
 <body>
