@@ -479,10 +479,11 @@
       /* Hero */
       .hero-wrapper { min-height: auto; padding: 16px; }
       .hero, .hero__clip { border-radius: 14px; }
-      .hero__inner { padding: 48px 40px 260px; min-height: auto; }
+      .hero__visual { display: none; }
+      .hero__inner { padding: 48px 40px 48px; min-height: auto; }
       .hero__content { max-width: 100%; }
-      .hero__visual { width: 75%; left: 50%; right: auto; transform: translateX(-50%); }
-      .subtitle-eye { white-space: normal; }
+      .hero__subtitle { white-space: normal; }
+      .subtitle-eye { max-width: 100%; }
 
       /* Общие отступы */
       .b1__inner, .b2__inner, .b3__inner,
@@ -527,9 +528,12 @@
 
     /* ── 480px — мобильный ───────────────────────────── */
     @media (max-width: 480px) {
-      /* Hero */
-      .hero__inner { padding: 36px 24px 240px; }
-      .hero__visual { width: 90%; }
+      /* Hero — скрыть иллюстрацию, текст на всю ширину */
+      .hero__visual { display: none; }
+      .hero__inner { padding: 40px 24px 44px; min-height: auto; }
+      .hero__content { max-width: 100%; }
+      .hero__subtitle { white-space: normal; font-size: 15px; }
+      .subtitle-eye { max-width: 100%; }
       .hero__author { margin-top: 28px; }
 
       /* Общие отступы */
@@ -538,13 +542,16 @@
       .b1, .b2, .b3, .b4, .bcl { padding: 28px 0; }
       .b5 { padding: 28px 0 0; }
 
-      /* Block 1 */
-      .b1__visual { flex-direction: column; align-items: center; }
-      .card-centered { width: 85%; }
-      .b1__piggy { width: 72%; }
+      /* Block 1 — скрыть карту */
+      .b1__visual { display: none; }
+      .b1__inner { grid-template-columns: 1fr; }
+      .b1__content { padding-right: 0; }
 
-      /* Block 2 */
+      /* Block 2 — убрать отступы у списков и подсказок */
       .b2 .it-num { width: 36px; font-size: 28px; }
+      .b2 .it-body { padding-left: 0 !important; }
+      .b2 .tips-group { margin-left: 0 !important; }
+      .b2 .item-callout { margin-left: 0 !important; }
 
       /* Block 3 */
       .b3 .it-num { font-size: 32px; }
