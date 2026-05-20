@@ -337,7 +337,7 @@
     }
 
     .b3 .item-callout {
-      margin-top: 10px;
+      margin-top: 0;
       background: linear-gradient(135deg, #142878 0%, #0d1f52 100%);
       border-radius: 12px; padding: 22px 26px;
       font-size: 14px; line-height: 1.65;
@@ -353,8 +353,9 @@
     /* ══════════════════════════════════════════════════════
        BLOCK 3 — Покупки
     ══════════════════════════════════════════════════════ */
-    .b3 .item { display: grid; grid-template-columns: 60px 1fr 260px; gap: 0 24px; padding: 24px 0; border-bottom: 1px solid #f0f2f8; align-items: start; }
+    .b3 .item { display: grid; grid-template-columns: 60px 1fr; gap: 0 24px; padding: 24px 0; border-bottom: 1px solid #f0f2f8; align-items: start; }
     .b3 .item:last-child { border-bottom: none; }
+    .b3 .item > div:last-child { grid-column: 2; margin-top: 14px; }
     .b3 .it-num { font-size: 44px; text-align: right; color: rgba(13,31,82,0.1); padding-top: 2px; }
 
     /* ══════════════════════════════════════════════════════
@@ -520,7 +521,7 @@
       .hero__inner { padding: 56px 0 56px 56px; }
       .hero__content { max-width: 60%; }
 
-      .b3 .item { grid-template-columns: 56px 1fr 200px; }
+      .b3 .item { grid-template-columns: 56px 1fr; }
       .b4__layout { grid-template-columns: 1fr 280px; gap: 40px; }
 
       .outro__inner { padding: 56px; }
@@ -562,7 +563,7 @@
 
       /* Block 3 */
       .b3 .item { grid-template-columns: 48px 1fr; gap: 0 16px; }
-      .b3 .item > div:last-child { grid-column: 1 / -1; margin-top: 12px; }
+      .b3 .item > div:last-child { grid-column: 2; margin-top: 12px; }
 
       /* Block 4 */
       .b4__layout { grid-template-columns: 1fr; gap: 28px; }
